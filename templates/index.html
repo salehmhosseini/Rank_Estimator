@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تخمین رتبه کنکور</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl p-6">
+        <h1 class="text-2xl font-bold mb-4 text-center">تخمین رتبه کنکور</h1>
+        <form id="rankForm" class="space-y-4">
+            <div>
+                <label for="reshte" class="block text-sm font-medium text-gray-700">رشته:</label>
+                <select id="reshte" name="reshte" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="1">ریاضی</option>
+                    <option value="2">تجربی</option>
+                    <option value="3">انسانی</option>
+                </select>
+            </div>
+            <div>
+                <label for="region" class="block text-sm font-medium text-gray-700">سهمیه:</label>
+                <select id="region" name="region" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="1">منطقه 1</option>
+                    <option value="2">منطقه 2</option>
+                    <option value="3">منطقه 3</option>
+                    <option value="4">سهمیه 5 درصد</option>
+                    <option value="5">سهمیه 25 درصد</option>
+                </select>
+            </div>
+            <div>
+                <label for="taraz_konkoor" class="block text-sm font-medium text-gray-700">تراز کنکور:</label>
+                <input type="number" id="taraz_konkoor" name="taraz_konkoor" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <div>
+                <label for="taraz_moadel" class="block text-sm font-medium text-gray-700">تراز معدل:</label>
+                <input type="number" id="taraz_moadel" name="taraz_moadel" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+            </div>
+            <div>
+                <button type="submit" class="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    محاسبه رتبه
+                </button>
+            </div>
+        </form>
+        <div id="result" class="mt-4 text-center font-bold"></div>
+    </div>
+
+    <script>
+        document.getElementById('rankForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const data = {
+                reshte: document.getElementById('reshte').value,
+                region: document.getElementById('region').value,
+                taraz_konkoor: document.getElementById('taraz_konkoor').value,
+                taraz_moadel: document.getElementById('taraz_moadel').value
+            };
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('result').textContent = 'خطا: ' + data.error;
+                } else {
+                    document.getElementById('result').textContent = 'رتبه تخمینی شما: ' + data.rank;
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                document.getElementById('result').textContent = 'خطا در دریافت نتیجه. لطفا دوباره تلاش کنید.';
+            });
+        });
+    </script>
+</body>
+</html>
