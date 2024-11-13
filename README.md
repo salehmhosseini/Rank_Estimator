@@ -2,14 +2,21 @@
 this is a python flask application to calculate and estimate the rank of the Konkour  
 # Rank Estimation Project
 
+## screenahots
+
+### Main Interface
 ![main screenshot](https://github.com/salehmhosseini/Rank_Estimator/blob/main/screenshots/main.png)
+Candidates can input their taraz to estimate their rank
+
+### Results Page
 ![result screenshot](https://github.com/salehmhosseini/Rank_Estimator/blob/main/screenshots/result.png)
+Display the estimated rank
 
 ## Project Overview
 
 **Rank Estimation** is a tool designed to predict a student’s rank based on their academic performance metrics, such as school GPA score, national exam score, study group, and quota category. This project aids students in estimating their likely rank after receiving their GPA scores, which are typically available before the official rank results are announced. This timely prediction allows students to start planning their course selection in advance, making it a valuable resource for those preparing for their next academic steps.
 
-The tool is currently live on Sahel Baratii's website and can be accessed [here](https://sahelbaratii.com/takhmin-rotbeh/).
+The tool is currently live on Sahel Barati's website and can be accessed [here](https://sahelbaratii.com/takhmin-rotbeh/).
 
 ## Purpose
 
@@ -42,7 +49,7 @@ To set up the project locally, follow these steps:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/rank-estimation.git
+git clone https://github.com/salehmhosseini/Rank_Estimator.git
 
 # Navigate to the project directory
 cd Rank_Estimator 
