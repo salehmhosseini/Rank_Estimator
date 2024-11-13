@@ -45,10 +45,7 @@ To set up the project locally, follow these steps:
 git clone https://github.com/yourusername/rank-estimation.git
 
 # Navigate to the project directory
-cd rank-estimation
-
-# Install the required dependencies
-pip install -r requirements.txt
+cd Rank_Estimator 
 
 # Run the application
 python app.py
