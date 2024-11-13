@@ -3,7 +3,7 @@ this is a python flask application to calculate and estimate the rank of the Kon
 # Rank Estimation Project
 
 ![main screenshot](https://github.com/salehmhosseini/Rank_Estimator/blob/main/screenshots/main.png)
-![result screenshot](path/to/screenshot2.png)
+![result screenshot](https://github.com/salehmhosseini/Rank_Estimator/blob/main/screenshots/result.png)
 
 ## Project Overview
 
@@ -52,3 +52,9 @@ pip install -r requirements.txt
 
 # Run the application
 python app.py
+```
+## Usage
+Once the application is running, navigate to http://localhost:5000 (or the specified port) in your browser. Input your details for GPA score, exam score, study group, and quota to get an estimated rank.
+
+## License
+This project is licensed under the MIT License.
