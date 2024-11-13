@@ -2,8 +2,8 @@
 this is a python flask application to calculate and estimate the rank of the Konkour  
 # Rank Estimation Project
 
-![Screenshot 1](path/to/screenshot1.png)
-![Screenshot 2](path/to/screenshot2.png)
+![main screenshot](https://github.com/salehmhosseini/Rank_Estimator/blob/main/screenshots/main.png)
+![result screenshot](path/to/screenshot2.png)
 
 ## Project Overview
 
